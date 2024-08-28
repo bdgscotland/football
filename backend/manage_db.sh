@@ -37,9 +37,11 @@ drop_and_recreate_schema() {
 # Function to inspect the database for duplicate emails
 inspect_duplicates() {
   echo "Inspecting for duplicate emails..."
-  exec_sql "SELECT email, COUNT(*) FROM user GROUP BY email HAVING COUNT(*) > 1;"
+  exec_sql 'SELECT "email", COUNT(*) FROM "user" GROUP BY "email" HAVING COUNT(*) > 1;'
   echo "Inspection complete."
 }
+
+
 
 
 # Show usage information
